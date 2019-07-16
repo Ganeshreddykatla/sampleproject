@@ -1,2 +1,3 @@
 Hi , this is git project 
 and going to push the my project into git repository
+hi wel come to git and github tutorial
