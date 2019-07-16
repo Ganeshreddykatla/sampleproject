@@ -1,0 +1,2 @@
+Hi , this is git project 
+and going to push the my project into git repository
