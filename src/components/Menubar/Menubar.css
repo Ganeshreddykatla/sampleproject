@@ -1,0 +1,30 @@
+.menubar {
+    background: #f8f0ee;
+    border-radius: 10px;
+    grid-area: nav;
+    height: 80px;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px 0 30px;
+  }
+
+
+  .menubar__left > a {
+    margin-right:40px;
+    margin-left: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 18px;
+    text-decoration: none;
+    color: #868686;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .menubar__left .active_link {
+    color: black;
+    border-bottom: #8fc3f4 6px solid;
+  }

@@ -1,0 +1,17 @@
+.incedent_main {
+
+        margin-top: 23px;
+        background: #fff;
+        grid-area: nav;
+        padding: 0 20px 0 20px;
+
+
+}
+.seach_incident {
+    margin-bottom: 20px;
+}
+.view_data {
+    color: #8fc3f4;
+    text-decoration: underline;
+    
+}
