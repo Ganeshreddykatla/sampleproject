@@ -9,17 +9,17 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+import SafetyScoreBoard from "../../containers/SafetyScoreBoard/SafetyScoreBoard";
 
 const Main = () => {
   return (
     <div className="main">
-      <Router>
-        <Switch>
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/process" component={Process} />
-          <Redirect from="/" to="/process" />
-        </Switch>
-      </Router>
+      <Switch>
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/process" component={Process} />
+        <Route exact path="/safety-score" component={SafetyScoreBoard} />
+        <Redirect from="/" to="/process" />
+      </Switch>
     </div>
   );
 };
