@@ -1,5 +1,5 @@
 import React from 'react';
-import './IncedentReport.css'
+import './IncidentReport.css'
 
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -30,8 +30,12 @@ const StyledTableCell = withStyles((theme) => ({
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
+   
     '&:nth-of-type(even)': {
-      backgroundColor:"#f8f0ee",
+      backgroundColor:"#fdf9f8",
+    },
+    'td': {
+      borderBottom : 'none',
     },
   },
 }))(TableRow);
@@ -77,7 +81,7 @@ export default function CustomizedTables() {
 
   return (
       <div className="incedent_main">
-          <div className={classes.search}>
+          <div className ={classes.search}>
           <TextField
           style = {{padding: '10px 25px'}}
            id="outlined-basic" 
@@ -109,7 +113,7 @@ export default function CustomizedTables() {
             <StyledTableCell align="center"></StyledTableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody className ={classes.MuiTableCell}>
           {rows.map((row) => (
             <StyledTableRow key={row.name}>
               <StyledTableCell component="th" scope="row">
