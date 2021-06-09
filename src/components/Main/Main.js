@@ -10,13 +10,11 @@
   const Main = () => {
     return (
       <div className="main">
-         <Router>
               <Switch >
                  <Route exact path= '/dashboard' component={Dashboard}/>
                  <Route exact path= '/process' component ={Process}/>
                  <Redirect  from= '/' to="/process" />
               </Switch>
-         </Router>
             
       </div>
     );

@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import avatar from "../../assets/img_avatar.png";
 import logo from "../../assets/logo.png";
-import { Link, Router, useHistory, useLocation} from "react-router-dom";
+import { Link, Router, useHistory, useLocation } from "react-router-dom";
 
 const menu_data = [
   {
@@ -21,9 +21,8 @@ const menu_data = [
 const Navbar = ({ sidebarOpen, openSidebar }) => {
   const location = useLocation();
 
-   console.log ('loca]tion', location)
+  console.log("loca]tion", location);
   return (
-    
     <nav className="navbar">
       <div className="nav_icon" onClick={() => openSidebar()}>
         <i className="fa fa-bars" aria-hidden="true"></i>
@@ -37,9 +36,11 @@ const Navbar = ({ sidebarOpen, openSidebar }) => {
       </div>
       <div className="navbar__left">
         {menu_data.map((nav) => {
-          const activeClass = location.pathname.toLowerCase().includes(nav.path) || nav.path === '/process'
-            ? "active"
-            : "";
+          const activeClass =
+            location.pathname.toLowerCase().includes(nav.path) ||
+            (location.pathname === "/" && nav.path === "/process")
+              ? "active"
+              : "";
 
           return (
             <Link className={activeClass} to={nav.path}>
