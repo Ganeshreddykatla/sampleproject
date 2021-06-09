@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 30px 0 30px;
+    margin-bottom: 20px;
   }
 
   .nav_icon {
@@ -32,7 +33,7 @@
       width: 160px;
 
   }
-  .navbar__left .active_link {
+  .navbar__left .active {
     color: black;
     border-bottom: #8fc3f4 3px solid;
   }
