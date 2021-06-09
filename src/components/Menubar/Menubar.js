@@ -1,7 +1,5 @@
   import "./Menubar.css";
 
-
-
   const Menubar = ({ sidebarOpen, openSidebar }) => {
     return (
       <nav className="menubar">
