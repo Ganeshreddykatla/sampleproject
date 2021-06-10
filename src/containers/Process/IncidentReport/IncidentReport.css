@@ -1,19 +1,134 @@
-.incedent_main {
-        margin-top: 0;
-        background: #fff;
-        grid-area: nav;
-        padding: 0 20px 0 20px;
-}
-.seach_incident {
-    margin: 20px;
-}
-.view_data {
-    color: #8fc3f4;
-    text-decoration: underline;
-    
-}
-.incedent_main .MuiTableCell-root {
-    border-bottom: none !important;
-  }
+            .incedent_main {
+                margin-top: 0;
+                background: #fff;
+                grid-area: nav;
+                padding: 0 20px 0 20px;
+            }
+             .incedent_main a {
+                 text-decoration: none;
+                 color: white
+             }
+            .seach_incident {
+                margin: 20px;
+            }
 
-  
+            .view_data {
+                color: #8fc3f4;
+                text-decoration: underline;
+            }
+
+            .incedent_main .MuiTableCell-root {
+                /* border-bottom: none !important; */
+            }
+
+            .add_incident {
+                margin-top: 30px;
+                background: #fff;
+                grid-area: nav;
+                padding: 0 20px 0 20px;
+            }
+
+            .incident_form {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            label {
+                font-weight: 500;
+                display: flex;
+                font-size: 14px;
+                text-transform: capitalize;
+                margin-bottom: 5px;
+                color: #8fc3f4;
+            }
+
+            input {
+                display: block;
+                width: 390px;
+                padding: 11px 14px;
+                color: #2c2c2c;
+                font-family: 'Montserrat';
+                font-size: 12px;
+                line-height: 1.42857143;
+                font-weight: 600;
+                background-color: #fff;
+                background-image: none;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                /* margin-bottom: 20px; */
+            }
+
+            select {
+                display: block;
+                width: 420px;
+                padding: 11px 14px;
+                font-size: 12px;
+                line-height: 1.42857143;
+                color: #2c2c2c;
+                font-weight: 600;
+                background-color: #fff;
+                background-image: none;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                /* margin-bottom: 20px; */
+            }
+
+            select option {
+                font-family: 'Montserrat';
+            }
+
+            .form-control {
+                margin-bottom: 24px;
+            }
+
+            .error {
+                color: red;
+            }
+
+            .supporting_file {
+                max-width: 340px;
+                height: 40px;
+                padding: 20px 132px;
+                display: block;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-family: "Quicksand", sans-serif;
+                font-weight: 500;
+                font-size: 20px;
+                cursor: pointer;
+                color: #cccccc;
+                background-color: #fafbfd;
+                border: 2px dashed #8fc3f4;
+                border-radius: 10px;
+            }
+
+            .supporting_file .input_title {
+                color: black;
+                font-size: 15px;
+                display: block;
+            }
+
+            .supporting_file .input_desc {
+                color: blue;
+                font-size: 10px;
+                display: block;
+            }
+
+            .supporting_input {
+                display: none;
+            }
+
+            .incident_buttons {
+                width: 50%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .emergency_table {
+                margin-top: 60px;
+                height: 100vh;
+
+            }
