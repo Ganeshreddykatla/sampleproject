@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+ import React, { useState} from "react";
 import {
   Formik,
   Form,
   Field,
-  ErrorMessage,
   FieldArray,
-  FastField,
+  ErrorMessage,
+
 } from "formik";
 import * as Yup from "yup";
 import TextError from "./TextError";
 import Button from '@material-ui/core/Button';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import ProcessMenu from "../../../components/Menubar/ProcessMenu";
-import EmergencyTeam from '../../../components/Tables/EmergencyTeam'
+import EmergencyTeam from '../../../components/Tables/EmergencyTeam';
+import { Plus } from "../../../components/Others";
+import Grid from '@material-ui/core/Grid';
+
+
+
 
 const initialValues = {
   incident_number: "7865765478",
@@ -24,8 +29,13 @@ const initialValues = {
   reported_by: "Samirdi Chauhan",
   incident_nature: "Nature of Incident",
   notice_date: "20/12/2020 & 22:10",
-  person_name: "Name of the Person Involved",
-  employ_nature: " Nature of Employement",
+  employee_details:  [
+   {
+    person_name : "Name of the Person Involved",
+    employ_nature : " Nature of Employement",
+    }
+  ],
+
   details: "Details",
   cause: "Root Cause/ Initial Findings",
   taken_action: " Action Taken",
@@ -35,26 +45,7 @@ const initialValues = {
   spporting_file: "",
 };
 
-const savedValues = {
-    incident_number: "7865765478",
-    location: "Baddi",
-    department: "Select Department",
-    report_title: "Report Title",
-    occurance_date: "20/12/2020 & 22:10",
-    placearea: "Baddi",
-    reported_by: "Samirdi Chauhan",
-    incident_nature: "Nature of Incident",
-    notice_date:  "20/12/2020 & 22:10",
-    person_name: "Name of the Person Involved",
-    employ_nature: " Nature of Employement",
-    details: "Details",
-    cause: "Root Cause/ Initial Findings",
-    taken_action: " Action Taken",
-    witness: " Witness Details",
-    recommendation: " Recommdations",
-    signature: " Chiris Narcos",
-    spporting_file: "",
-};
+
 
 const onSubmit = (values, submitProps) => {
   console.log("Form data", values);
@@ -75,17 +66,23 @@ const validateComments = (value) => {
   return error;
 };
 
+
+
 const AddIncident = () => {
   const [formValues, setFormValues] = useState(null);
+  const [spporting_file, setFile] =  useState("");
 
-
+  const uploadFile = (event) => {
+    setFile(event.target.spporting_file);
+  }
+  
 
   
   const Incidentbutton = withStyles((theme) => ({
     root: {
         margin: '0 10px 0 10px',
         padding: '10px 15px',
-        textTransform: 'capitalize',
+        textTransorm: 'capitalize',
         width: '400px',
          color: "#fff",
       backgroundColor: '#90c2f3',
@@ -121,7 +118,7 @@ const AddIncident = () => {
 
       <div className="add_incident">
         <Formik
-          initialValues={formValues || initialValues}
+          initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
           enableReinitialize
@@ -133,8 +130,10 @@ const AddIncident = () => {
             console.log("Formik props", formik);
             return (
               <Form>
-                <div className="incident_form">
-                  <div className="form-control">
+                <Grid container spacing={4}>
+                  <Grid row >
+                   <Grid item xs={12} md={4}>
+                  <div className="">
                     <label htmlFor="name">Incident Number</label>
                     <Field
                       type="text"
@@ -146,8 +145,9 @@ const AddIncident = () => {
                       component={TextError}
                     />
                   </div>
-
-                  <div className="form-control">
+                  </Grid>
+                  <Grid item xs={12} md={4}>
+                  <div className="">
                     <label htmlFor="location">Location</label>
                     <Field
                       type="text"
@@ -163,8 +163,9 @@ const AddIncident = () => {
                       {(error) => <div className="error">{error}</div>}
                     </ErrorMessage>
                   </div>
-
-                  <div className="form-control">
+                  </Grid>
+                  <Grid item xs={12} md={4}>
+                  <div className="">
                     <label htmlFor="department">Department</label>
                     <Field
                       as="select"
@@ -179,8 +180,9 @@ const AddIncident = () => {
                  </Field>
                     <ErrorMessage name="channel" />
                   </div>
-                </div>
-
+                  </Grid>
+                  </Grid>
+                </Grid>
                 <div className="incident_form">
                   <div className="form-control">
                     <label htmlFor="report_title">Report Title</label>
@@ -245,9 +247,67 @@ const AddIncident = () => {
                       name="notice_date"
                       placeholder=""
                     />
+                   
+
                     <ErrorMessage name="notice_date" />
                   </div>
                 </div>
+
+                <FieldArray 
+                 name='employee_details'
+                 render={(arrayHelpers) => (
+                 <>
+                       { formik.values.employee_details.map((item, index)  => {
+                          return (
+
+                            <div className="incident_form">
+                            <div className="form-control">
+                              <label htmlFor="person_name">
+                                Person Involved in Incident
+                              </label>
+                              <Field type="text" id="person_name"  name={`employee_details[${index}].person_name`} />
+                              <ErrorMessage name="person_name" component={TextError} />
+                            </div>
+          
+                            <div className="form-control">
+                              <label htmlFor="employ_nature">Nature of Employement</label>
+                              <Field
+                                as="select"
+                                type="text"
+                                id="employ_nature"
+                                name={`employee_details[${index}].employ_nature`} 
+                              >
+                                <option value="accident">Full Time</option>
+                                <option value="accident">Part Time</option>
+                                <option value="accident">Others</option>
+                              </Field>
+                              <ErrorMessage name="employ_nature">
+                                {(error) => <div className="error">{error}</div>}
+                              </ErrorMessage>
+                            </div>
+         
+                          </div>) }
+                        )}
+                               { <Button
+                    type="button"
+                    
+                    onClick={() => arrayHelpers.push(initialValues.employee_details[0])}
+                  >
+                    +
+                  </Button>
+                }
+                  { <Button
+                    type="button"
+                    
+                    onClick={(index) => formik.values.employee_details}
+                  >
+                    -
+                  </Button> 
+                }
+                 </>
+                 )}
+          
+                />
                 <div className="incident_form">
                   <div className="form-control">
                     <label htmlFor="person_name">
@@ -334,8 +394,8 @@ const AddIncident = () => {
 
                   <div className="form-control">
                     <label htmlFor="file">Supporting Documents</label>
-                     <div className="supporting_file">
-                    <Field name="spporting_file" as={CustomInputComponent} placeholder=""/>
+                     <div className="supporting_file" onClick = {uploadFile}>
+                    <Field name="spporting_file" as={CustomInputComponent} placeholder="" />
                      <div className="input_title">Upload the Document</div>
                      <div className="input_desc">Max 2MB File</div>
                     </div>
@@ -354,7 +414,7 @@ const AddIncident = () => {
                   variant="contained"
                   color="secondary"
                   type="button"
-                  onClick={() => setFormValues(savedValues)}
+                  onClick={() => setFormValues(initialValues)}
                 >
          Save as Draft
                 </Incidentbutton>
@@ -362,7 +422,7 @@ const AddIncident = () => {
                   variant="contained"
                   color="secondary"
                   type="button"
-                  onClick={() => setFormValues(savedValues)}
+                  onClick={() => setFormValues(initialValues)}
                 >
        Invite
                 </Incidentbutton>
@@ -370,7 +430,7 @@ const AddIncident = () => {
                   variant="contained"
                   color="secondary"
                   type="button"
-                  onClick={() => setFormValues(savedValues)}
+                  onClick={() => setFormValues(initialValues)}
                 >
             Cancel
                 </Cancelbutton>

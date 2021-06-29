@@ -15,12 +15,24 @@
     head: {
         backgroundColor: "#f8f0ee",
         color: '#8fc3f4',
+        fontFamily: 'Montserrat'
         
     },
     body: {
         fontSize: 14,
     },
     }))(TableCell);
+
+    const StyledTableTitle = withStyles((theme) => ({
+        head: {
+            backgroundColor: "#f8f0ee",
+            color: '#black',
+            fontSize: '18px',
+            fontFamily: 'Montserrat'
+            
+        },
+      
+        }))(TableCell);
 
     const StyledTableRow = withStyles((theme) => ({
     root: {
@@ -69,12 +81,18 @@
     return (
         <div className="incedent_main">
         <TableContainer component={Paper}>
-          Emergency Team
+         
         <Table className={classes.table} aria-label="customized table">
             <TableHead>
-               
+               <TableRow>
+               <StyledTableTitle  align="left">Emergency Team</StyledTableTitle>
+               <StyledTableCell align="center"></StyledTableCell>
+                <StyledTableCell align="center"></StyledTableCell>
+                <StyledTableCell align="center"></StyledTableCell>
+                <StyledTableCell align="center"></StyledTableCell>
+               </TableRow>
             <TableRow>
-                <StyledTableCell  align="center">Name</StyledTableCell>
+                <StyledTableCell  >Name</StyledTableCell>
                 <StyledTableCell align="center">Designtion</StyledTableCell>
                 <StyledTableCell align="center">Department</StyledTableCell>
                 <StyledTableCell align="center">Location</StyledTableCell>
@@ -84,7 +102,7 @@
             <TableBody className ={classes.MuiTableCell}>
             {rows.map((row) => (
                 <StyledTableRow key={row.name}>
-                <StyledTableCell align="center">{row.name}</StyledTableCell>
+                <StyledTableCell >{row.name}</StyledTableCell>
                 <StyledTableCell align="center">{row.designation}</StyledTableCell>
                 <StyledTableCell align="center">{row.department}</StyledTableCell>
 

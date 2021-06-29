@@ -103,7 +103,7 @@
   border-radius: 10px;
   width: 43px;
 
-
+     
   }
 
 
@@ -111,10 +111,17 @@
     .nav_icon {
       display: inline;
     }
+    .navbar{
+      display: none;
+    }
   }
 
   @media only screen and (max-width: 480px) {
     .navbar__left {
       display: none;
     }
+    .navbar{
+      display: none;
+    }
+
   }

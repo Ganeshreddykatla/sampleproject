@@ -21,6 +21,10 @@
                 /* border-bottom: none !important; */
             }
 
+            .MuiOutlinedInput-input {
+                padding: 11px 18px ;
+            }
+
             .add_incident {
                 margin-top: 30px;
                 background: #fff;
@@ -45,7 +49,7 @@
 
             input {
                 display: block;
-                width: 390px;
+                width: 100%;
                 padding: 11px 14px;
                 color: #2c2c2c;
                 font-family: 'Montserrat';
@@ -61,7 +65,7 @@
 
             select {
                 display: block;
-                width: 420px;
+                width: 100%;
                 padding: 11px 14px;
                 font-size: 12px;
                 line-height: 1.42857143;
